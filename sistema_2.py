@@ -51,7 +51,7 @@ while True:
         print(mensagem_saque)
         if 'sucesso' in mensagem_saque:
             historico.append(mensagem_saque)
-        # Não adicionar excessos e erros no histórico / extrato
+        # TO DO: Não adicionar excessos e erros no histórico / extrato
 
     elif opcao == '3':
         extrato(historico, saldo)
