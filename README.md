@@ -1,2 +1,3 @@
-# sistema-bancario
-Resolução da atividade do curso de python da DIO
+# Desafio Sistema-Bancário
+Criação e otimização de um Sistema Bancário utilizando a linguagem de programação Python.
+
