@@ -1,7 +1,23 @@
-# Criar um sistema bancário com as operações de depósito, saque e extrato
-# Todos os depósitos e saques devem ser armazenados em variável e exibidos no extrato
-# Limite de 3 saques diários de no máximo R$500,00 (verificar se o cliente possui saldo)
-# Exibir os valores de saldo final depois das operações no formato R$xxx.xx
+'''
+Operações: SACAR, DEPOSITAR e VISUALIZAR EXTRATO
+
+Saque: 
+    - apenas valores positivos 
+    - 3 saques diários com limite de R$500 por saque
+    - armazenar saques em uma variável e exibir nas operações de extrato 
+    - exibir mensagem em caso de erro
+
+Depósito: 
+    - apenas valores positivos
+    - devem ser armazenados em uma variável e exibidos nas operações de extrato
+    - exibir mensagem em caso de erro
+
+Visualizar extrato:
+    - listar todos os saques e extratos
+    - exibir saldo atual da conta
+    - padrão: R$XXXX.XX
+
+'''
 
 limite_saques = 3
 saques = 0
@@ -37,26 +53,31 @@ def extrato(historico, saldo):
     print(f"\nSaldo atual: R$ {saldo:.2f}")
 
 while True:
-    opcao = input('Escolha a operação: 1: Depósito; 2: Saque; 3: Extrato; 4: Encerrar\n')
+    opcao = input('''
+Escolha a operação que deseja fazer das opções abaixo:
+    [1] Sacar
+    [2] Depositar
+    [3] Visualizar extrato 
+    [4] Sair
+''')
 
-    if opcao == '1':
-        valor_deposito = int(input('Valor do depósito: '))
-        saldo, mensagem_deposito = deposito(saldo, valor_deposito)
-        print(mensagem_deposito)
-        historico.append(mensagem_deposito)
-
-    elif opcao == '2':
+    if opcao == '1': # Saque
         valor_saque = int(input('Valor do saque: '))
         saldo, saques, mensagem_saque = saque(saldo, valor_saque, limite_saques, saques)
         print(mensagem_saque)
         if 'sucesso' in mensagem_saque:
             historico.append(mensagem_saque)
-        # TO DO: Não adicionar excessos e erros no histórico / extrato
 
-    elif opcao == '3':
+    elif opcao == '2': # Depósito
+        valor_deposito = int(input('Valor do depósito: '))
+        saldo, mensagem_deposito = deposito(saldo, valor_deposito)
+        print(mensagem_deposito)
+        historico.append(mensagem_deposito)
+
+    elif opcao == '3': # Extrato
         extrato(historico, saldo)
 
-    elif opcao == '4':
+    elif opcao == '4': # Sair
         print('Obrigada por utilizar o nosso sistema!!!')
         break
 

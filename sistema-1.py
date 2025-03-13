@@ -15,7 +15,7 @@ Depósito:
 Visualizar extrato:
     - listar todos os saques e extratos
     - exibir saldo atual da conta
-    - padrão: R$1000.00
+    - padrão: R$XXXX.XX
 
 '''
 
